@@ -1,0 +1,111 @@
+style "window-buttons" {
+    fg[PRELIGHT] = "#FFFFFF"
+    fg[ACTIVE] = "#FFFFFF"
+    fg[NORMAL] = "#FFFFFF"
+    
+    bg[ACTIVE] = "#C5D7D9"
+    engine "pixmap" {
+
+        image {
+            function = BOX
+            state = PRELIGHT
+            file = "bg.png"
+            stretch = TRUE
+        }
+        image {
+            function = BOX
+            state = NORMAL
+        }
+        image {
+            function = BOX
+            state = ACTIVE
+            file = "bg.png"
+            stretch = TRUE
+        }
+    }
+}
+
+style "whiskermenu" {
+    engine "pixmap" {
+        image {
+            function = BOX
+            state = NORMAL
+            file = "bg.png"
+            stretch = TRUE
+        }
+        image {
+            function = BOX
+            state = PRELIGHT
+            file = "bg.png"
+            stretch = TRUE
+        }
+        image {
+            function = BOX
+            state = ACTIVE
+            file = "bg.png"
+            stretch = TRUE
+        }
+        image {
+            function = BOX
+            state = INSENSITIVE
+            file = "bg.png"
+            stretch = TRUE
+        }
+    }
+}
+
+style "text-panel" {
+    fg[NORMAL] = "#FFFFFF"
+    fg[ACTIVE] = "#FFFFFF"
+    fg[PRELIGHT] = "#FFFFFF"
+    fg[ACTIVE] = "#FFFFFF"
+    fg[INSENSITIVE] = "#FFFFFF"
+
+    text[NORMAL] = "#FFFFFF"
+    text[ACTIVE] = "#FFFFFF"
+    text[PRELIGHT] = "#FFFFFF"
+    text[ACTIVE] = "#FFFFFF"
+    text[INSENSITIVE] = "#FFFFFF"
+}
+
+style "framempc" {
+    bg[NORMAL] = "#000000"
+    bg[ACTIVE] = "#000000"
+    bg[PRELIGHT] = "#000000"
+	xthickness = 2
+	ythickness = 2
+	engine "pixmap" {
+        image {
+            function = BOX
+            state = NORMAL
+        }
+      image {
+            function = BOX
+            state = ACTIVE
+            file = "bg.png"
+            stretch = TRUE
+        }
+        image {
+            function = BOX
+            state = INSENSITIVE
+            file = "bg.png"
+            stretch = TRUE
+        }
+        image {
+            function = BOX
+            state = PRELIGHT
+            file = "bg.png"
+            stretch = TRUE
+        }
+    }
+
+}
+
+widget "*XfceTasklist*"			style "window-buttons"
+widget "*XfceLauncherPlugin*"			style : highest "window-buttons"
+widget_class "*XfceLauncherPlugin*GtkButton"	style : highest "window-buttons"
+widget_class "*XfcePanelPlugin*GtkToggleButton"	style "window-buttons"
+widget_class "*XfcePanelPlugin*GtkButton"	style "window-buttons"
+widget_class "*XfceClockPlugin*" style : highest "text-panel"
+widget "*XfcePanelWindowWrapper.whiskermenu-2.whiskermenu-button" style : highest "whiskermenu"
+widget "*XfcePanelWindowWrapper.xfce4-mpc-plugin*.GtkFrame.XfceHVBox.xfce-panel-button" style : highest "framempc"
